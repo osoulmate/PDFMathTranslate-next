@@ -82,6 +82,41 @@ You can try our application out using either of the following services:
 
 For different use cases, we provide distinct methods to use our program. Check out [this page](./getting-started/getting-started.md) for more information.
 
+#### 1. 本地开发
+
+```
+cd PDFMathTranslate-next
+uv sync --python 3.12 --group dev
+source .venv/bin/activate
+```
+#### 2. 启动与调试
+
+```
+# CLI
+uv run pdf2zh_next --openai --openai-api-key "$OPENAI_API_KEY" your.pdf
+
+# WebUI
+uv run pdf2zh_next --gui --server-port 7860
+# 打开 http://localhost:7860
+```
+
+#### 3. 质量检查（可选）
+
+```
+uv run pytest -q tests test
+uv run ruff check .
+uv run ruff format .
+uv run pre-commit install
+uv run pre-commit run -a
+```
+
+#### 4. 文档开发（可选）
+
+```
+uv run mkdocs serve
+# 打开 http://127.0.0.1:8000
+```
+
 <h2 id="usage">Advanced Options</h2>
 
 For detailed explanations, please refer to our document about [Advanced Usage](https://pdf2zh-next.com/advanced/advanced.html) for a full list of each option.
@@ -148,3 +183,4 @@ We welcome the active participation of contributors to make pdf2zh better. Befor
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=PDFMathTranslate-next/PDFMathTranslate-next&type=Date"/>
  </picture>
 </a>
+
